@@ -1,0 +1,330 @@
+/* ==========================================================================
+   ARABIC LOGOS & BRANDING SECTION
+   ========================================================================== */
+
+.arabic-logos-section {
+  background: var(--paper);
+  border-block-start: var(--border);
+  padding-block: var(--section-space);
+}
+
+.heading-with-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.arabic-logos__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--surface);
+  color: var(--ink);
+  border: var(--border-thin);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.arabic-logos__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-block: 1.6rem 2.2rem;
+  padding-block-end: 0.9rem;
+  border-block-end: var(--border-thin);
+}
+
+.arabic-logos__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.arabic-logos__count .mono-index {
+  color: var(--ink);
+  background: var(--surface-deep);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+}
+
+/* Grid Layout */
+.arabic-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.6rem;
+}
+
+@media (min-width: 1024px) {
+  .arabic-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .arabic-logos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Logo Card */
+.arabic-logo-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-small);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.arabic-logo-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow);
+}
+
+.arabic-logo-card__canvas {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.2rem;
+  background: var(--surface);
+  border-block-end: var(--border);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition: background-color 180ms ease;
+}
+
+.arabic-logo-card__canvas:hover {
+  background: var(--surface-deep);
+}
+
+.arabic-logo-card__index {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+html[lang='ar'] .arabic-logo-card__index {
+  left: auto;
+  right: 0.9rem;
+}
+
+.arabic-logo-card__image-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arabic-logo-card__image {
+  max-width: 82%;
+  max-height: 82%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arabic-logo-card:hover .arabic-logo-card__image {
+  transform: scale(1.05);
+}
+
+.arabic-logo-card__zoom-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.9rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: var(--border-thin);
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+html[lang='ar'] .arabic-logo-card__zoom-hint {
+  right: auto;
+  left: 0.9rem;
+}
+
+.arabic-logo-card__canvas:hover .arabic-logo-card__zoom-hint,
+.arabic-logo-card__canvas:focus-visible .arabic-logo-card__zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arabic-logo-card__footer {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--paper);
+}
+
+.arabic-logo-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.arabic-logo-card__category {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Actions & Button */
+.arabic-logos__actions {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 3.5rem;
+}
+
+.arabic-logos__toggle-btn {
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+}
+
+/* Modal Popup */
+.logo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(23, 59, 47, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: modalFadeIn 180ms ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.logo-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: 12px 12px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalZoomIn 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalZoomIn {
+  from {
+    transform: scale(0.95) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.logo-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--ink);
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+html[lang='ar'] .logo-modal__close {
+  right: auto;
+  left: 1rem;
+}
+
+.logo-modal__close:hover {
+  transform: translate(-2px, -2px);
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.logo-modal__stage {
+  min-height: 380px;
+  max-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 2.5rem;
+  background: var(--surface);
+  border-block-end: var(--border);
+  overflow: hidden;
+}
+
+.logo-modal__image {
+  max-width: 90%;
+  max-height: 52vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(23, 59, 47, 0.12));
+}
+
+.logo-modal__info {
+  padding: 1.5rem 2rem;
+  background: var(--paper);
+}
+
+.logo-modal__info h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.logo-modal__info p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
